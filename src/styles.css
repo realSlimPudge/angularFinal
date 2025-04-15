@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+* {
+  font-family: "ABeeZee", sans-serif;
+}
+
+.Abel {
+  font-family: "Abel", sans-serif;
+}
+
+.content {
+  max-width: 1440px;
+}

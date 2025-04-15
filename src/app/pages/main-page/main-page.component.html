@@ -1,1 +1,96 @@
-<p>main-page works!</p>
+<section class="bg-[#211c24]">
+  <div class="content mx-auto flex justify-center items-center">
+    <div class="w-[714px] h-[256px] flex flex-col justify-between">
+      <p class="text-gray-600 text-2xl italic">Pro.Beyond.</p>
+      <p class="Abel text-8xl text-white">IPhone 15 Pro</p>
+      <p class="text-[#909090] italic text-lg">
+        Created to change everything for the better. For everyone
+      </p>
+      <app-button color="light" product="/product/74" />
+    </div>
+    <div class="max-w-[406px] max-h-[632px]">
+      <img class="w-full h-full" src="Images/Iphone Image.png" alt="IPhone 14 Pro" />
+    </div>
+  </div>
+</section>
+<section>
+  <div class="grid grid-cols-4 grid-rows-[328px_272px] h-[600px]">
+    <div class="bg-white col-span-2 row-span-1 flex justify-start items-center h-[328px] group">
+      <div class="overflow-hidden">
+        <img class="transition-all ease duration-300 group-hover:scale-110" src="Images/PlayStation.png"
+          alt="Playstation" />
+      </div>
+      <div class="w-[338px] space-y-3">
+        <p class="text-5xl italic text-black">Playstation 5</p>
+        <p class="text-sm text-[#909090] italic">
+          Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will
+          redefine your PlayStation experience.
+        </p>
+      </div>
+    </div>
+    <div class="col-span-2 row-span-2 bg-[#ededed] flex justify-end items-center gap-x-2 group">
+      <div class="h-[192px] w-[360px] flex flex-col justify-between">
+        <p class="text-[64px] Abel leading-14">
+          Macbook <span class="italic leading-14">Air</span>
+        </p>
+        <p class="italic text-sm text-[#909090]">
+          The new 15‑inch MacBook Air makes room for more of what you love with
+          a spacious Liquid Retina display.
+        </p>
+        <app-button color="dark" />
+      </div>
+      <div class="max-w-[292px] max-h-[502px] overflow-hidden">
+        <img
+          class="w-full h-full transition-all ease duration-300 transform group-hover:scale-95 group-hover:translate-x-3"
+          src="Images/MacBook Pro 14.png" alt="Mac Book Pro 14" />
+      </div>
+    </div>
+    <div class="row-span-1 col-span-1 flex justify-start items-center h-[272px] gap-x-8 bg-[#ededed] group">
+      <div class="overflow-hidden">
+        <img src="Images/Airpods Max.png" alt="Airpods Max"
+          class="group-hover:scale-105 transition-all ease duration-300" />
+      </div>
+      <div class="w-[160px]">
+        <p class="italic text-3xl text-black">Apple Airpods Max</p>
+        <p class="text-sm text-[#909090] italic">
+          Computational audio. Listen, it's powerful
+        </p>
+      </div>
+    </div>
+    <div class="row-span-1 col-span-1 flex justify-start items-center h-[272px] gap-x-8 bg-[#353535] group">
+      <div class="overflow-hidden">
+        <img src="Images/Apple Vision.png" alt="Apple Vision"
+          class="group-hover:scale-105 transition-all ease duration-300" />
+      </div>
+      <div class="w-[160px]">
+        <p class="italic text-3xl text-white">Apple Airpods Max</p>
+        <p class="text-sm text-[#909090] italic">
+          Computational audio. Listen, it's powerful
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="w-[1120px] h-[352px] mx-auto flex flex-col justify-center gap-y-6">
+    <div class="text-black italic text-2xl flex justify-between items-center">
+      <p>Browse By Category</p>
+      <div class="w-[80px] flex justify-between items-center">
+        <button class="cursor-pointer">
+          <img src="Icon/32px/Arrow.svg" alt="back category" />
+        </button>
+        <button class="cursor-pointer">
+          <img class="rotate-180" src="Icon/32px/Arrow.svg" alt="next category" />
+        </button>
+      </div>
+    </div>
+    <div class="flex justify-between items-center">
+      <app-category-card category="Phones" />
+      <app-category-card category="Smart Watches" />
+      <app-category-card category="Cameras" />
+      <app-category-card category="Headphones" />
+      <app-category-card category="Computers" />
+      <app-category-card category="Gaming" />
+    </div>
+  </div>
+</section>
