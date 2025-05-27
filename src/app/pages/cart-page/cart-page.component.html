@@ -1,1 +1,94 @@
-<p>cart-page works!</p>
+<section>
+  <div class="flex justify-between items-start mx-auto py-22 w-[1120px]">
+    <div class="w-[536px]">
+      <h2 class="text-2xl text-black Abel">Shopping Cart</h2>
+      <div>
+        <div
+          *ngFor="let item of cartItems"
+          class="flex justify-between items-center pt-6 pb-10 w-full border-b h-[130px] border-[#a3a3a3]"
+        >
+          <div class="size-[90px]">
+            <img
+              class="object-contain size-full"
+              [src]="'http://localhost:1452/' + item.images[0]"
+              alt=""
+            />
+          </div>
+          <div>
+            <p class="italic text-[16px]">{{ item.name }}</p>
+            <p class="text-gray-400 text-[14px]">#{{ item.id }}</p>
+          </div>
+          <div class="flex items-center gap-x-2">
+            <button (click)="updateQuantity(item, -1)">
+              <img src="/Icon/24px/No Edit.svg" alt="" />
+            </button>
+            <span
+              class="py-2 px-4 text-black border border-gray-400 text-[16px] rounded-[5px]"
+              >{{ item.quantity }}</span
+            >
+            <button (click)="updateQuantity(item, 1)">
+              <img src="/Icon/24px/Edit.svg" alt="" />
+            </button>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span class="italic text-[20px]"
+              >${{ item.price * item.quantity }}</span
+            >
+            <button class="cursor-pointer" (click)="removeItem(item.id)">
+              <img src="/Icon/24px/Close.svg" alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-16 px-14 border border-[#ebebeb] w-[536px] rounded-[10px]">
+      <div>
+        <h3 class="italic text-[20px]">Order Summary</h3>
+      </div>
+      <div>
+        <div class="w-full">
+          <p class="italic text-[14px] text-[#545454]">
+            Discount code / Promo code
+          </p>
+          <input
+            type="text"
+            placeholder="Code"
+            class="p-4 mb-4 w-full border border-[#9f9f9f] rounded-[7px] placeholder:text-[#979797] placeholder:text-sm"
+          />
+          <p class="italic text-[14px] text-[#545454]">
+            Your bonus card number
+          </p>
+          <input
+            type="text"
+            placeholder="Enter Card Number"
+            class="p-4 w-full border border-[#9f9f9f] rounded-[7px] placeholder:text-[#979797] placeholder:text-sm"
+          />
+        </div>
+        <div class="space-y-3 mt-5">
+          <div class="italic text-[16px] flex items-center justify-between">
+            <p class="">Subtotal</p>
+            <span class="">${{ totalPrice }}</span>
+          </div>
+          <div class="italic text-[16px] flex items-center justify-between">
+            <p class="Abel text-[#545454]">Eslimated Tax</p>
+            <span class="">$50</span>
+          </div>
+          <div class="italic text-[16px] flex items-center justify-between">
+            <p class="Abel text-[#545454]">Eslimated shipping & Handling</p>
+            <span class="">$29</span>
+          </div>
+          <div class="italic text-[16px] flex items-center justify-between">
+            <p class="">Total</p>
+            <span class="">${{ totalPrice + 79 }}</span>
+          </div>
+        </div>
+        <button
+          class="bg-black w-full py-4 italic text-[16px] rounded-[6px] text-white mt-10 cursor-pointer"
+          (click)="checkout()"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

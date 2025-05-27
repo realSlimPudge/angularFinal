@@ -1,1 +1,22 @@
-<p>favourite-page works!</p>
+<section>
+  <div class="my-20 mx-auto space-y-5 w-[350px]">
+    <h2 class="text-2xl text-black Abel">Favourite</h2>
+    <div
+      [routerLink]="['/product', item.id]"
+      *ngFor="let item of favourites"
+      class="flex justify-start items-center w-full border-t border-b cursor-pointer py-23 h-[130px] border-[#a3a3a3]"
+    >
+      <div class="size-[90px]">
+        <img
+          class="object-contain size-full"
+          [src]="'http://localhost:1452/' + item.images[0]"
+          alt=""
+        />
+      </div>
+      <div>
+        <p class="italic text-[16px]">{{ item.name }}</p>
+        <p class="text-gray-400 text-[14px]">#{{ item.id }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<div
+  class="flex flex-col gap-y-3 justify-between items-center py-4 px-6 bg-[#f6f6f6] max-h-[432px] w-[266px] rounded-[9px]"
+>
+  <div class="flex justify-end w-full">
+    <button class="cursor-pointer">
+      <img src="/Icon/32px/Like.svg" alt="Like" />
+    </button>
+  </div>
+  <div class="size-[160px]">
+    <img [src]="imageUrl" class="size-full" alt="{{ name }}" />
+  </div>
+  <div class="space-y-2">
+    <h5 class="italic font-light text-black text-[16px]">
+      {{ brand }} {{ name }}
+    </h5>
+    <p class="text-2xl text-center Abel">${{ price }}</p>
+    <button
+      [routerLink]="routerLink"
+      class="py-3 px-16 text-sm italic text-white bg-black cursor-pointer rounded-[8px]"
+    >
+      Buy Now
+    </button>
+  </div>
+</div>

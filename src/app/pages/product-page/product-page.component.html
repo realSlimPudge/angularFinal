@@ -1,1 +1,137 @@
-<p>product-page works!</p>
+<ng-container *ngIf="product">
+  <section *ngIf="product">
+    <div class="flex justify-between items-center mx-auto w-[1200px] h-[769px]">
+      <div class="w-[413px] h-[516px]">
+        <img
+          [src]="'http://localhost:1452/' + product.images[0]"
+          class="object-contain w-full h-full"
+          alt="{{ product.name }}"
+        />
+      </div>
+      <div class="flex flex-col gap-y-4 justify-between h-fit w-[536px]">
+        <div>
+          <h1 class="italic font-light text-[40px]">{{ product.name }}</h1>
+          <p class="text-3xl italic font-light text-black">
+            ${{ product.price }}
+          </p>
+        </div>
+        <div>
+          <div class="grid grid-cols-3 gap-3">
+            <div
+              *ngFor="let car of product.characteristics"
+              class="flex justify-start gap-x-3 items-center bg-[#f4f4f4] w-[168px] h-[64px] rounded-[7px]"
+            >
+              <div class="size-[24px]">
+                <img class="size-full" src="/Icon/24px/CPU.svg" alt="" />
+              </div>
+              <div>
+                <p class="text-sm font-light Abel text-[#c4c4c4]">
+                  {{ car.characteristic }}
+                </p>
+                <p class="text-sm italic font-light text-[#4e4e4e]">
+                  {{ car.value }} {{ car.unit_type }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>
+            Enhanced capabilities thanks toan enlarged display of 6.7 inchesand
+            work without rechargingthroughout the day. Incredible photosas in
+            weak, yesand in bright lightusing the new systemwith two cameras
+            <span class="underline"> more...</span>
+          </p>
+        </div>
+        <div class="flex space-x-3 w-full">
+          <button
+            (click)="toggleWishlist()"
+            class="py-4 px-14 w-full italic font-light bg-transparent border border-black cursor-pointer text-[16px] rounded-[6px]"
+          >
+            Add to Wishlist
+          </button>
+          <button
+            (click)="addToCart()"
+            class="py-4 px-14 w-full italic font-light text-white bg-black border border-black cursor-pointer text-[16px] rounded-[6px]"
+          >
+            Add to Card
+          </button>
+        </div>
+        <div class="flex">
+          <div class="flex gap-x-5 justify-start items-center w-[157px]">
+            <div>
+              <img src="/Icon/56px/Delivery.svg" alt="" />
+            </div>
+            <div>
+              <p class="italic text-[#717171] text-[14px]">Rating</p>
+              <p>{{ product.rating }}</p>
+            </div>
+          </div>
+          <div class="flex gap-x-5 justify-start items-center w-[157px]">
+            <div>
+              <img src="/Icon/56px/Stock.svg" alt="" />
+            </div>
+            <div>
+              <p class="italic text-[#717171] text-[14px]">Обзоры</p>
+              <p>{{ product.count_review }}</p>
+            </div>
+          </div>
+          <div class="flex gap-x-5 justify-start items-center w-[157px]">
+            <div>
+              <img src="/Icon/56px/Guaranteed.svg" alt="" />
+            </div>
+            <div>
+              <p class="italic text-[#717171] text-[14px]">Guaranteed</p>
+              <p>{{ product.guarantee }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="w-screen py-15 bg-[#fafafa]">
+    <div
+      class="py-12 px-10 mx-auto space-y-6 bg-white rounded-[8px] w-[1120px]"
+    >
+      <div><h3 class="text-2xl italic">Details</h3></div>
+      <div>
+        <p class="text-sm italic text-[#9d9d9d]">
+          Just as a book is judged by its cover, the first thing you notice when
+          you pick up a modern smartphone is the display. Nothing surprising,
+          because advanced technologies allow you to practically level the
+          display frames and cutouts for the front camera and speaker, leaving
+          no room for bold design solutions. And how good that in such realities
+          Apple everything is fine with displays. Both critics and mass
+          consumers always praise the quality of the picture provided by the
+          products of the Californian brand. And last year's 6.7-inch Retina
+          panels, which had ProMotion, caused real admiration for many.
+        </p>
+      </div>
+      <div class="space-y-3">
+        <div
+          class="flex justify-between pb-3 w-full border-0 border-b border-[#cdcdcd]"
+          *ngFor="let car of product.characteristics"
+        >
+          <div class="font-light Abel text-[16px]">
+            {{ car?.characteristic }}
+          </div>
+          <div class="font-light Abel text-[16px]">
+            {{ car?.value }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    *ngIf="product.rating !== undefined && product.count_review !== undefined"
+  >
+    <div
+      class="flex flex-col justify-center items-center my-10 ml-40 size-[184px] bg-[#fafafa] rounded-[25px]"
+    >
+      <p class="text-6xl italic">{{ product.rating }}</p>
+      <p class="italic text-gray-400 text-[16px]">
+        of {{ product.count_review }} reviews
+      </p>
+    </div>
+  </section>
+</ng-container>

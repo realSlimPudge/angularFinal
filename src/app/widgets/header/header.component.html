@@ -1,15 +1,29 @@
+<!-- header.component.html -->
 <header class="w-screen h-[88px] bg-white">
   <div class="content flex mx-auto justify-around items-center h-full">
-    <a href="/">
+    <a routerLink="/">
       <img src="Logos/Color=Black.svg" alt="cyber logo" />
     </a>
     <app-search></app-search>
     <div class="w-[88px] flex justify-between items-center">
-      <a href="/favourite" class="cursor-pointer">
+      <a routerLink="/favourite" class="cursor-pointer relative">
         <img src="Icon/32px/Favorites.svg" alt="Favorites" />
+        <span
+          *ngIf="wishlistCount > 0"
+          class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs"
+        >
+          {{ wishlistCount }}
+        </span>
       </a>
-      <a href="/cart" class="cursor-pointer">
+
+      <a routerLink="/cart" class="cursor-pointer relative">
         <img src="Icon/32px/Cart.svg" alt="Cart" />
+        <span
+          *ngIf="(totalItems$ | async) ?? 0 > 0"
+          class="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs"
+        >
+          {{ totalItems$ | async }}
+        </span>
       </a>
     </div>
   </div>

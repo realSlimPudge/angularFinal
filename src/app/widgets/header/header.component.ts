@@ -1,10 +1,32 @@
-import { Component } from '@angular/core';
+// header.component.ts
+import { Component, OnInit } from '@angular/core';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+import { WishlistService } from '../../services/wishlist.service';
 import { SearchComponent } from '../../components/search/search.component';
 
 @Component({
   selector: 'app-header',
-  imports: [SearchComponent],
+  standalone: true,
+  imports: [CommonModule, AsyncPipe, RouterModule, SearchComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent { }
+export class HeaderComponent implements OnInit {
+  totalItems$;
+  wishlistCount = 0;
+
+  constructor(
+    private cartService: CartService,
+    private wishlistService: WishlistService,
+  ) {
+    this.totalItems$ = this.cartService.totalItems$;
+  }
+
+  ngOnInit() {
+    this.wishlistService.getWishlistItems().subscribe((items) => {
+      this.wishlistCount = items.length;
+    });
+  }
+}
